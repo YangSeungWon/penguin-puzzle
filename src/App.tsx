@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
+        <Route path="/play/:data" element={<Play />} />
         <Route path="/play" element={<Play />} />
         <Route path="/make" element={<Make />} />
       </Routes>

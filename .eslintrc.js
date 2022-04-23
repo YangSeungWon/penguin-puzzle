@@ -10,6 +10,7 @@ module.exports = {
     'plugin:import/typescript',
     'plugin:react/recommended',
     'airbnb',
+    'airbnb/hooks',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -35,6 +36,9 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'no-shadow': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
   },
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],

@@ -2,34 +2,26 @@ import { Grid } from '@mui/material';
 import PenguinCard from 'components/PenguinCard/PenguinCard';
 import React from 'react';
 import './Board.css';
+import Penguin from 'utils/Penguin';
 
-function Board() {
+type BoardProps = {
+  board: Penguin[][];
+};
+
+function Board({ board }: BoardProps) {
   return (
     <div>
-      <Grid container xs={8} spacing={2}>
-        <PenguinCard age={1} />
-        <PenguinCard age={3} />
-        <PenguinCard age={0} />
-        <PenguinCard age={2} />
-      </Grid>
-      <Grid container xs={8} spacing={2}>
-        <PenguinCard age={1} />
-        <PenguinCard age={3} />
-        <PenguinCard age={0} />
-        <PenguinCard age={2} />
-      </Grid>
-      <Grid container xs={8} spacing={2}>
-        <PenguinCard age={1} />
-        <PenguinCard age={3} />
-        <PenguinCard age={0} />
-        <PenguinCard age={2} />
-      </Grid>
-      <Grid container xs={8} spacing={2}>
-        <PenguinCard age={1} />
-        <PenguinCard age={3} />
-        <PenguinCard age={0} />
-        <PenguinCard age={2} />
-      </Grid>
+      {
+        board.map((row: Penguin[]) => (
+          <Grid container xs={8} spacing={2}>
+            {
+              row.map((age: Penguin) => (
+                <PenguinCard age={age} />
+              ))
+            }
+          </Grid>
+        ))
+      }
     </div>
   );
 }
