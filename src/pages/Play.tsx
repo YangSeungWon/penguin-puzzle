@@ -1,18 +1,28 @@
 import React from 'react';
 import Board from 'components/Board/Board';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { parse } from 'utils/parser';
 
-function App() {
+function Play() {
   let { data } = useParams();
   if (data === undefined) {
     data = '1,1:-';
   }
-  return (
-    <div className="App">
-      <Board board={parse(data)} />
-    </div>
-  );
+  try {
+    const board = parse(data);
+    return (
+      <div className="Play">
+        <Board board={board} />
+      </div>
+    );
+  } catch (err) {
+    return (
+      <div className="Play">
+        <p>An error occurred while parsing board data.</p>
+        <Link to="/">Return to Home</Link>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default Play;

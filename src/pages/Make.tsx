@@ -1,11 +1,11 @@
 import React from 'react';
 
-function App() {
+function Make() {
   return (
-    <div className="App">
+    <div className="Make">
       arst
     </div>
   );
 }
 
-export default App;
+export default Make;
